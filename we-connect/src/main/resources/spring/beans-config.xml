@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/data/mongo
+       http://www.springframework.org/schema/data/mongo/spring-mongo.xsd">
+
+       <context:property-placeholder location="classpath:props/*.properties"/>
+
+       <context:component-scan base-package="com.eh.dao.impl"/>
+       <context:component-scan base-package="com.eh.service.impl"/>
+
+       <aop:aspectj-autoproxy/>
+
+       <!-- 通过工厂Bean创建mongo连接实例,没有密码就把username和password属性删除了-->
+       <mongo:db-factory host="${mongodb.host}" port="${mongodb.port}" dbname="${mongodb.database}"
+                         username="${mongodb.username}" password="${mongodb.password}"/>
+
+       <!-- mongo模板操作对象 -->
+       <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+              <constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/>
+       </bean>
+
+</beans>
