@@ -22,6 +22,7 @@ public class AccountController {
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public ResponseWrapper addAccount(@RequestBody Account account) {
+        account.setCreatedOn(new Date());
         account = accountService.create(account);
         return new ResponseWrapper(account);
     }
@@ -37,6 +38,7 @@ public class AccountController {
     @ResponseBody
     public ResponseWrapper updateAccount(@PathVariable String id, @RequestBody Account account) {
         account.setId(id);
+        account.setUpdatedOn(new Date());
         accountService.update(account);
         return new ResponseWrapper();
     }
