@@ -178,7 +178,7 @@
     {
         "appId": "wxf5696b744f8581a4",
         "appSecret": "ab1b7d2b3d5624b099c4c653dfa2aa4d",
-        "name": "群游汇",
+        "name": "ftd_new",
         "channel": "WEIXIN",
         "accountType": "SUBSCRIPTION_ACCOUNT"
     }
