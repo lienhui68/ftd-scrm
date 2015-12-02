@@ -12,6 +12,13 @@ import java.io.Serializable;
 public class Account extends Identifier<String> implements Serializable {
     private static final long serialVersionUID = -2105912742258215254L;
 
+    public static final String CHANNEL_ACCOUNT = "channelAccount";
+    public static final String CHANNEL = "channel";
+    public static final String APP_ID = "appId";
+    public static final String APP_SECRET = "appSecret";
+    public static final String NAME = "name";
+    public static final String ACCOUNT_TYPE = "accountType";
+
     private String channelAccount;
     private String appId;
     private String appSecret;

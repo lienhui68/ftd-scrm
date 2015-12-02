@@ -16,7 +16,6 @@
         <org.aspectj.version>1.8.7</org.aspectj.version>
         <mysql.version>5.1.37</mysql.version>
         <jstl.version>1.2</jstl.version>
-        <taglib.version>1.1.2</taglib.version>
         <javax.servlet.version>3.1.0</javax.servlet.version>
         <org.apache.commons.version>3.4</org.apache.commons.version>
         <cglib.version>3.1</cglib.version>
@@ -101,11 +100,6 @@
             <version>${jstl.version}</version>
         </dependency>
         <dependency>
-            <groupId>taglibs</groupId>
-            <artifactId>standard</artifactId>
-            <version>${taglib.version}</version>
-        </dependency>
-        <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>${javax.servlet.version}</version>
@@ -151,6 +145,11 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>1.7.12</version>
         </dependency>
     </dependencies>
 

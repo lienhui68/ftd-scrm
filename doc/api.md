@@ -119,6 +119,8 @@
 
 - Response body
 
+    Success:
+
     ```json
 	{
 	    "code": 200,
@@ -138,6 +140,21 @@
 	        "url": null
 	    }
 	}
+    ```
+
+    Error:
+
+    ```json
+    {
+        "code": 401,
+        "desc": "Precondition Faild",
+        "data": {
+            "errorMsg": "The account cannot be created.",
+            "details": [
+                "Required field [name] can not be found."
+            ]
+        }
+    }
     ```
 
 ## Delete One Account
@@ -174,6 +191,8 @@
 
 - Request Body
 
+    Success:
+
     ```json
     {
         "appId": "wxf5696b744f8581a4",
@@ -181,6 +200,22 @@
         "name": "ftd_new",
         "channel": "WEIXIN",
         "accountType": "SUBSCRIPTION_ACCOUNT"
+    }
+    ```
+
+    Error:
+
+    ```json
+    {
+        "code": 401,
+        "desc": "Precondition Faild",
+        "data": {
+            "errorMsg": "The account cannot be updated.",
+            "details": [
+                "Required field [channel] can not be found.",
+                "Required field [accountType] can not be found."
+            ]
+        }
     }
     ```
 

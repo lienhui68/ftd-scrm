@@ -17,8 +17,15 @@
 
        <context:component-scan base-package="com.eh.dao.impl"/>
        <context:component-scan base-package="com.eh.service.impl"/>
+       <context:component-scan base-package="com.eh.util"/>
+       <context:component-scan base-package="com.eh.validator"/>
 
        <aop:aspectj-autoproxy/>
+
+       <bean id="messageSource"
+             class="org.springframework.context.support.ResourceBundleMessageSource">
+              <property name="basename" value="message" />
+       </bean>
 
        <!-- 通过工厂Bean创建mongo连接实例,没有密码就把username和password属性删除了-->
        <mongo:db-factory host="${mongodb.host}" port="${mongodb.port}" dbname="${mongodb.database}"
