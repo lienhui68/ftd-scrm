@@ -1,7 +1,6 @@
+import com.eh.util.ValidUtil;
+import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.util.Arrays;
-import java.util.Locale;
 
 /**
  * Created by David Li on 2015/12/2.
@@ -9,19 +8,9 @@ import java.util.Locale;
 public class SomeTest {
     @Test
     public void test() {
-        String[] strs = new String[] {"world", "hello"};
-        Arrays.sort(strs);
-        String sorted = null;
-        StringBuffer bf = new StringBuffer();
-        for (String str : strs) {
-            bf.append(str);
-        }
-        sorted = bf.toString();
-
-        System.out.println(sorted);
-
-//        String encrypted = ValidUtil.encryptWithSha1(sorted);
-//
-//        return encrypted;
+        String str = "HelloWorld!";
+        String encrypted = ValidUtil.encryptWithSha1(str);
+        String password = "d735871a64133ee062400659cf91b8234d1c1930";
+        Assert.assertEquals(encrypted, password);
     }
 }

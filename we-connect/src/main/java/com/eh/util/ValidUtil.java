@@ -31,17 +31,21 @@ public class ValidUtil {
         return encrypted;
     }
 
-    private static String encryptWithSha1(String input) {
+    public static String encryptWithSha1(String input) {
         MessageDigest msgDigest = null;
         String str = null;
         try {
+            // SHA-1（如果想要SHA1参数换成”MD5”）
             msgDigest = MessageDigest.getInstance("SHA-1");
         } catch (NoSuchAlgorithmException e) {
         }
 
         if (null != msgDigest) {
+            // 输入的字符串转换成字节数组
             byte[] bt = input.getBytes();
+            // bt是输入字符串转换得到的字节数组
             msgDigest.update(bt);
+            // msgDigest.digest() 转换并返回结果，也是字节数组
             str = ValidUtil.byte2hex(msgDigest.digest());
         }
 

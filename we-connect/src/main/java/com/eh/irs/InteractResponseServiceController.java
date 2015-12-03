@@ -1,8 +1,9 @@
 package com.eh.irs;
 
 import com.eh.base.web.BaseController;
-import com.eh.channel.WechatmMessageFactory;
+import com.eh.channel.ChannelFactory;
 import com.eh.dao.AccountDao;
+import com.eh.model.Account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,7 @@ public class InteractResponseServiceController extends BaseController {
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public Object validate(@PathVariable String accountId, @RequestParam Map<String, String> params) {
-        return (new WechatmMessageFactory()).messageEntryValidate(params, accountDao.findById(accountId));
+        Account account = accountDao.findById(accountId);
+        return ChannelFactory.getMessageFactory(account).messageEntryValidate(params, account);
     }
 }
