@@ -27,8 +27,9 @@ public abstract class BaseServiceImpl<ID extends Serializable, T extends Identif
     }
 
     @Override
-    public void update(T entity) {
+    public T update(T entity) {
         dao.update(entity);
+        return entity;
     }
 
     @Override

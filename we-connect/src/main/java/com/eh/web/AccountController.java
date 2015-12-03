@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -33,14 +32,13 @@ public class AccountController extends BaseController {
         if (validationMsgs.size() > 0) {
             throw new ServiceWarningException(MessageKeys.ENTITY_CREATE_FAILED, new String[] { "account" }, validationMsgs);
         }
-        account.setCreatedOn(new Date());
-        account = accountService.create(account);
+        account = accountService.createAccount(account);
         return new ResponseWrapper(account);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public ResponseWrapper deletAccount(@PathVariable String id) {
+    public ResponseWrapper deleteAccount(@PathVariable String id) {
         accountService.delete(id);
         return new ResponseWrapper();
     }
@@ -53,9 +51,8 @@ public class AccountController extends BaseController {
             throw new ServiceWarningException(MessageKeys.ENTITY_UPDATE_FAILED, new String[] { "account" }, validationMsgs);
         }
         account.setId(id);
-        account.setUpdatedOn(new Date());
-        accountService.updateAccount(account);
-        return new ResponseWrapper();
+        account = accountService.updateAccount(account);
+        return new ResponseWrapper(account);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -71,4 +68,5 @@ public class AccountController extends BaseController {
         List<Account> accounts = accountService.findAll();
         return new ResponseWrapper(accounts);
     }
+
 }

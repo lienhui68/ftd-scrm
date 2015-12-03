@@ -15,44 +15,50 @@ import java.util.List;
  */
 public abstract class MongoDaoImpl<ID extends Serializable, T extends Identifier<ID>> implements MongoDao<ID, T> {
 
-	@Autowired
-	private MongoTemplate mongoTemplate;
+    @Autowired
+    private MongoTemplate mongoTemplate;
 
-	@Override
-	public void insert(T t) {
-		mongoTemplate.insert(t);
-	}
+    @Override
+    public void insert(T t) {
+        mongoTemplate.insert(t);
+    }
 
-	@Override
-	public boolean delete(ID id) {
-		Query query = new Query(Criteria.where(Identifier.ID).is(id));
-		WriteResult wr = mongoTemplate.remove(query, getEntityClass());
-		if(!wr.wasAcknowledged()) {
-			return true;
-		}
-		return wr.isUpdateOfExisting();
-	}
+    @Override
+    public boolean delete(ID id) {
+        Query query = new Query(Criteria.where(Identifier.ID).is(id));
+        WriteResult wr = mongoTemplate.remove(query, getEntityClass());
+        if (!wr.wasAcknowledged()) {
+            return true;
+        }
+        return wr.isUpdateOfExisting();
+    }
 
-	@Override
-	public void update(T t) {
-		mongoTemplate.save(t);
-	}
+    @Override
+    public void update(T t) {
+        mongoTemplate.save(t);
+    }
 
-	@Override
-	public T findById(ID id) {
-		Query query = new Query(Criteria.where(Identifier.ID).is(id));
-		return (T) mongoTemplate.findOne(query, getEntityClass());
-	}
+    @Override
+    public T findById(ID id) {
+        Query query = new Query(Criteria.where(Identifier.ID).is(id));
+        return (T) mongoTemplate.findOne(query, getEntityClass());
+    }
 
-	@Override
-	public List<T> findAll() {
-		List<T> list = (List<T>) mongoTemplate.findAll(getEntityClass());
-		if (list == null) {
-			return Collections.emptyList();
-		} else {
-			return list;
-		}
-	}
+    @Override
+    public List<T> findAll() {
+        List<T> list = (List<T>) mongoTemplate.findAll(getEntityClass());
+        if (list == null) {
+            return Collections.emptyList();
+        }
+        return list;
+    }
 
-
+    @Override
+    public List<T> find(Query query) {
+        List<T> list = (List<T>) mongoTemplate.find(query, getEntityClass());
+        if (list == null) {
+            return Collections.emptyList();
+        }
+        return list;
+    }
 }

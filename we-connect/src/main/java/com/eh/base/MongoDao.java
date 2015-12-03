@@ -1,5 +1,7 @@
 package com.eh.base;
 
+import org.springframework.data.mongodb.core.query.Query;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -51,4 +53,11 @@ public interface MongoDao<ID extends Serializable, T extends Identifier<ID>> {
      * @return
      */
     List<T> findAll();
+
+    /**
+     * Find entities by condition
+     * @param query
+     * @return
+     */
+    List<T> find(Query query);
 }

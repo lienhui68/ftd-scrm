@@ -29,7 +29,7 @@ public interface BaseService<ID extends Serializable, T extends Identifier<ID>> 
 	 * @param entity
 	 * @return
 	 */
-	void update(T entity);
+	T update(T entity);
 
 	/**
 	 * Find entity by id

@@ -9,4 +9,6 @@ public class MessageKeys {
     public static final String ENTITY_CREATE_FAILED = "entity.create.failed";
 
     public static final String ENTITY_UPDATE_FAILED = "entity.update.failed";
+
+    public static final String ENTITY_ACCOUNT_ALREADY_EXISTS = "entity.account.already.exists";
 }

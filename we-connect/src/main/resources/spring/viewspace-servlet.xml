@@ -15,6 +15,7 @@
 
     <!-- 扫描web包， 应用Spring的注解 -->
     <context:component-scan base-package="com.eh.web"/>
+    <context:component-scan base-package="com.eh.irs"/>
 
     <!-- 配置视图解释器， 将ModelAndView及字符串解析为具体的页面 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"

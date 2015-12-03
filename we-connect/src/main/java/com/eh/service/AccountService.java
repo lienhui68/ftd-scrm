@@ -7,8 +7,18 @@ import com.eh.model.Account;
  * Created by David Li on 2015/12/1.
  */
 public interface AccountService extends BaseService<String, Account> {
+
     /**
-     * update given account
+     * Create given account
+     *
+     * @param account
      */
-    void updateAccount(Account account);
+    Account createAccount(Account account);
+
+    /**
+     * Update given account
+     *
+     * @param account
+     */
+    Account updateAccount(Account account);
 }
