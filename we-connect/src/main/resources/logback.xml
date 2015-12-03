@@ -37,12 +37,6 @@
     <logger name="org.hibernate.engine.QueryParameters" level="DEBUG" />
     <logger name="org.hibernate.engine.query.HQLQueryPlan" level="DEBUG" />
 
-    <!-- 日志输出级别 -->
-    <root level="INFO">
-        <appender-ref ref="STDOUT" />
-        <appender-ref ref="FILE" />
-    </root>
-
     <!--日志异步到数据库 -->
     <appender name="DB" class="ch.qos.logback.classic.db.DBAppender">
         <!--日志异步到数据库 -->
@@ -56,4 +50,11 @@
             </dataSource>
         </connectionSource>
     </appender>
+
+    <!-- 日志输出级别 -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+        <appender-ref ref="DB" />
+    </root>
 </configuration>
