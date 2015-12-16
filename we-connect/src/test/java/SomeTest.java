@@ -11,6 +11,7 @@ public class SomeTest {
         String str = "HelloWorld!";
         String encrypted = ValidUtil.encryptWithSha1(str);
         String password = "d735871a64133ee062400659cf91b8234d1c1930";
+        System.out.println(encrypted);
         Assert.assertEquals(encrypted, password);
     }
 }

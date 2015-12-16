@@ -1,5 +1,6 @@
 package com.eh.channel;
 
+import com.eh.channel.wechat.WechatWebService;
 import com.eh.channel.wechat.WechatmMessageFactory;
 import com.eh.enums.Channel;
 import com.eh.model.Account;
@@ -12,9 +13,11 @@ import java.util.Map;
  */
 public class ChannelFactory {
     private static Map<Channel, ChannelMessageFactory> messageFactoryMap = new HashMap<Channel, ChannelMessageFactory>();
+    private static Map<Channel, ChannelWebService> messageServiceMap = new HashMap<Channel, ChannelWebService>();
 
     static {
         messageFactoryMap.put(Channel.WEIXIN, new WechatmMessageFactory());
+        messageServiceMap.put(Channel.WEIXIN, new WechatWebService());
     }
 
     public static ChannelMessageFactory getMessageFactory(Channel channel) {
