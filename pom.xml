@@ -28,6 +28,7 @@
         <module>we-connect</module>
         <module>wechat-sdk</module>
         <module>design-pattern-study</module>
+        <module>demo</module>
     </modules>
 
     <dependencies>

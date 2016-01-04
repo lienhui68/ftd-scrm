@@ -1,6 +1,9 @@
+import com.eh.model.Account;
 import com.eh.util.ValidUtil;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.ArrayList;
 
 /**
  * Created by David Li on 2015/12/2.
@@ -8,10 +11,10 @@ import org.testng.annotations.Test;
 public class SomeTest {
     @Test
     public void test() {
-        String str = "HelloWorld!";
+        String str = "888888";
         String encrypted = ValidUtil.encryptWithSha1(str);
-        String password = "d735871a64133ee062400659cf91b8234d1c1930";
         System.out.println(encrypted);
-        Assert.assertEquals(encrypted, password);
+        java.util.List<Account> accounts = new ArrayList<Account>();
+
     }
 }
